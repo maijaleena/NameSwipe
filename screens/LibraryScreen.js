@@ -1,17 +1,28 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-import { COUNTRIES } from '../data/countries';
+import { View, Text, StyleSheet, Button, FlatList } from 'react-native';
+import { COUNTRIES, NAMES } from '../data/countries';
 import Colors from '../constants/Colors';
 
 const LibraryScreen = (props) => {
 	const countryId = props.navigation.getParam('categoryId');
 	const selectedCountry = COUNTRIES.find((country) => country.id === countryId);
 
+  const displayedNames = NAMES.filter(name => name.categoryId === countryId)
+
+  const renderNameItem = itemData =>{
+    return (<View><Text>{itemData.item.name}</Text></View>)
+  }
+
 	return (
 		<View style={styles.screen}>
-			<Text> Library </Text>
+			<Text> Library of Names </Text>
 			<Text>{selectedCountry.title}</Text>
-			<Button
+      <FlatList data={displayedNames}
+      keyExtractor={(item,index) => item.id}
+      renderItem={renderNameItem}
+       />
+
+			{/* <Button
 				title="See Names"
 				onPress={() => {
 					props.navigation.navigate({ routeName: 'NamesList' });
@@ -22,7 +33,7 @@ const LibraryScreen = (props) => {
 				onPress={() => {
 					props.navigation.pop();
 				}}
-			/>
+			/> */}
 		</View>
 	);
 };
