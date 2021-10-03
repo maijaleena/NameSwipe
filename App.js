@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import { Text, View } from 'react-native';
+import { View, StyleSheet} from 'react-native';
 import * as Font from 'expo-font';
 import AppLoading from 'expo-app-loading';
 import AppNavigator from './navigation/AppNavigator';
 import {enableScreens} from 'react-native-screens'
+import Constants from 'expo-constants'
+import TopBar from './components/TopBar'
 
 enableScreens();
 
@@ -27,6 +29,19 @@ export default function App() {
     );
   }
 
-  return <AppNavigator />;
+  return (
+    <View style={styles.container}>
+    <TopBar />
+    <AppNavigator />
+    </View>
+  )
+
+
 }
 
+const styles = StyleSheet.create({
+  container:{
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+  }
+})

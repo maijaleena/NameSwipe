@@ -1,11 +1,32 @@
-import React from 'react';
-import {View, Text, StyleSheet, Button} from 'react-native';
+import React, {useState, useEffect } from 'react';
+import {View, Text, StyleSheet, Button, Alert} from 'react-native';
+import axios from 'axios';
 
 const SwipeScreen = props => {
+
+  const [names, setNames] = useState([]);
+
+  async function fetchNames(){
+    try{
+      const {data} = await axios.get('https://www.behindthename.com/api/random.json?usage=fin&number=6&key=so677108746')
+      setNames(data.names);
+      console.log(data.names);
+    }catch(error){
+      console.log(error);
+      Alert.alert('Error getting names','', [{text: "Retry", onPress: () => fetchNames()}])
+    }
+  }
+
+  useEffect(() => {
+    fetchNames()
+  }, [])
+
   return (
 
     <View style={styles.screen}>
-      <Text> Names </Text>
+      <View style= {styles.swipe}>
+
+      </View>
       <Button title="Change Library" onPress={() => {
       props.navigation.navigate({routeName: 'Libraries'});
     }} />
@@ -18,6 +39,19 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: 'center'
+  },
+  swipe:{
+    flex: 1,
+    padding: 10,
+    paddingTop: 8,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.29,
+    shadowRadius: 4.65,
+    elevation: 7
   }
 });
 
