@@ -34,11 +34,9 @@ LibraryScreen.navigationOptions = (navigationData) => {
 
   return {
     headerTitle: selectedCountry.title,
-    headerStyle: {
-      backgroundColor: "",
-    },
-    headerTintColor: Colors.primaryColor
+
   };
+
 };
 
 const styles = StyleSheet.create({

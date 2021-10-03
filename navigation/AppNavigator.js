@@ -1,7 +1,8 @@
 
 import { createStackNavigator} from 'react-navigation-stack';
 import { createAppContainer } from "react-navigation";
-
+import {Platform} from 'react-native';
+import Colors from '../constants/Colors';
 import WelcomeScreen from '../screens/WelcomeScreen';
 import SwipeScreen from '../screens/SwipeScreen';
 import AllLibrariesScreen from '../screens/AllLibrariesScreen';
@@ -14,6 +15,14 @@ const AppNavigator = createStackNavigator({
   Libraries: AllLibrariesScreen,
   Library: LibraryScreen,
   NamesList: NamesListScreen
-});
+}, {
+defaultNavigationOptions: {
+  headerStyle: {
+    backgroundColor: "",
+  },
+  headerTintColor: Colors.primaryColor
+}
+}
+);
 
 export default createAppContainer(AppNavigator);
