@@ -1,12 +1,15 @@
 import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, Button} from 'react-native';
 
 const SwipeScreen = props => {
   return (
-    <View style={styles.screen}>
-      <Text></Text>
-    </View>
 
+    <View style={styles.screen}>
+      <Text> Names </Text>
+      <Button title="Change Library" onPress={() => {
+      props.navigation.navigate({routeName: 'Libraries'});
+    }} />
+    </View>
   )
 }
 
