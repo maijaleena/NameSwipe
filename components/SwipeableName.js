@@ -1,21 +1,42 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import {
   View,
   Text,
   StyleSheet,
 } from 'react-native';
-
-const SwipeableName = ({name}) => (
-
+import axios from 'axios';
 
 
+const SwipeableName = ({name}) => {
+
+
+  const [information, setInfo] = useState([]);
+  // const [currentIndex, setCurrentIndex] = useState(0);
+
+  async function fetchInfo(){
+    try{
+      const {data} = await axios.get( `https://www.behindthename.com/api/lookup.json?name=${name}&key=so677108746`)
+      setInfo(data.information);
+      console.log(data.information);
+    }catch(error){
+      console.log(error);
+      Alert.alert('Error getting names')
+    }
+  }
+
+  useEffect(() => {
+    fetchInfo()
+  }, [])
 
 
 
+  return (
   <View >
     <Text style={styles.name} > {name} </Text>
-    <Text>   </Text>
-  </View>);
+    <Text style={styles.info}> Info Coming Soon</Text>
+  </View>
+  )
+};
 
 
 export default SwipeableName ;
@@ -23,6 +44,11 @@ export default SwipeableName ;
 const styles = StyleSheet.create({
  name:{
    fontSize:50,
-   textAlign: 'center'
+   textAlign: 'center',
+  borderRadius: 20,
  },
+ info:{
+   fontSize:20,
+   textAlign: 'center'
+ }
 });

@@ -30,9 +30,10 @@ const SwipeScreen = props => {
         {names.length > 1 && (
           <SwipeableName name={names[currentIndex]} /> )}
       </View>
-      <Button title="Change Library" onPress={() => {
+      {/* CHANGE LIBRARY BUTTON BELOW ADD BACK  */}
+      {/* <Button title="Change Library" onPress={() => {
       props.navigation.navigate({routeName: 'Libraries'});
-    }} />
+    }} /> */}
     </View>
   )
 }
@@ -47,7 +48,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'lightgreen',
     width: '95%',
-    height: '95%',
+    height: '75%',
     padding: 10,
     paddingTop: 8,
     shadowColor: '#000',
