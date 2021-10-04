@@ -12,7 +12,6 @@ const SwipeScreen = props => {
     try{
       const {data} = await axios.get('https://www.behindthename.com/api/random.json?usage=fin&number=6&key=so677108746')
       setNames(data.names);
-      console.log(data.names);
     }catch(error){
       console.log(error);
       Alert.alert('Error getting names','', [{text: "Retry", onPress: () => fetchNames()}])
@@ -30,10 +29,9 @@ const SwipeScreen = props => {
         {names.length > 1 && (
           <SwipeableName name={names[currentIndex]} /> )}
       </View>
-      {/* CHANGE LIBRARY BUTTON BELOW ADD BACK  */}
-      {/* <Button title="Change Library" onPress={() => {
+      <Button title="Change Library" onPress={() => {
       props.navigation.navigate({routeName: 'Libraries'});
-    }} /> */}
+    }} />
     </View>
   )
 }

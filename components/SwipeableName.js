@@ -10,14 +10,14 @@ import axios from 'axios';
 const SwipeableName = ({name}) => {
 
 
-  const [information, setInfo] = useState([]);
+  const [info, setInfo] = useState([]);
   // const [currentIndex, setCurrentIndex] = useState(0);
 
   async function fetchInfo(){
     try{
       const {data} = await axios.get( `https://www.behindthename.com/api/lookup.json?name=${name}&key=so677108746`)
-      setInfo(data.information);
-      console.log(data.information);
+      setInfo(data);
+      console.log("DATA", data);
     }catch(error){
       console.log(error);
       Alert.alert('Error getting names')
@@ -33,7 +33,9 @@ const SwipeableName = ({name}) => {
   return (
   <View >
     <Text style={styles.name} > {name} </Text>
-    <Text style={styles.info}> Info Coming Soon</Text>
+    {/* <Text style={styles.info}> Language: {data[0].usages[0].usage_full}</Text> */}
+    {/* <Text style={styles.info}> Historical Gender Usage: {data[0].usages[0].usage_gender}</Text> */}
+    <Text style={styles.info}> Language of Origin: Finnish </Text>
   </View>
   )
 };

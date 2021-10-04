@@ -4,7 +4,7 @@ import {FontAwesome5, FontAwesome} from '@expo/vector-icons';
 
 export default function BottomBar(){
   return (
-    <View styles={styles.container} >
+    <View style={styles.container} >
       <TouchableOpacity style={styles.button}>
         <FontAwesome name='times' size={27} color="red"></FontAwesome>
       </TouchableOpacity>
@@ -15,14 +15,13 @@ export default function BottomBar(){
   )
 }
 
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    flex: 1,
     height: 75,
+    marginTop: 10
   },
   button: {
     width: 50,
