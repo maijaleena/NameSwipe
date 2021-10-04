@@ -2,13 +2,13 @@ import React from "react";
 import {View, Text, StyleSheet, TouchableOpacity, Touchable} from 'react-native'
 import {FontAwesome5, FontAwesome} from '@expo/vector-icons';
 
-export default function BottomBar(){
+export default function BottomBar( {handleLikePress, handlePassPress}){
   return (
     <View style={styles.container} >
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handlePassPress}>
         <FontAwesome name='times' size={27} color="red"></FontAwesome>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity style={styles.button} onPress={handleLikePress}>
         <FontAwesome name='heart' size={27} color="green"></FontAwesome>
       </TouchableOpacity>
     </View>

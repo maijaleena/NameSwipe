@@ -7,6 +7,7 @@ import {enableScreens} from 'react-native-screens'
 import Constants from 'expo-constants'
 import TopBar from './components/TopBar'
 import BottomBar from './components/BottomBar'
+import Swipes from './components/Swipes'
 
 enableScreens();
 
@@ -34,7 +35,7 @@ export default function App() {
     <View style={styles.container}>
     <TopBar />
     <AppNavigator />
-    <BottomBar />
+    {/* <BottomBar /> */}
     </View>
   )
 

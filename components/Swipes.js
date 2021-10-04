@@ -4,7 +4,8 @@ import  Swipeable  from 'react-native-gesture-handler/Swipeable'
 import SwipeableName from './SwipeableName';
 import {RectButton} from 'react-native-gesture-handler'
 
-const Swipes = ({names, currentIndex}) =>{
+
+const Swipes = ({names, currentIndex, handleLike, handlePass, swipesRef}) =>{
 
   const renderLeftActions = () =>{
     return(
@@ -24,11 +25,14 @@ const Swipes = ({names, currentIndex}) =>{
 
   return (
 <Swipeable
+  ref={swipesRef}
   friction={2}
   leftThreshold={40}
   rightThreshold={40}
   renderLeftActions={renderLeftActions}
   renderRightActions={renderRightActions}
+  onSwipeableLeftOpen={handleLike}
+  onSwipeableRightOpen={handlePass}
 >
     <SwipeableName name={names[currentIndex]} />
 </Swipeable>
@@ -36,7 +40,7 @@ const Swipes = ({names, currentIndex}) =>{
 
 }
 
-export default Swipes ;
+export default React.forwardRef((props,ref) => <Swipes swipesRef={ref} {...props}></Swipes>) ;
 
 const styles = StyleSheet.create({
   container: {
