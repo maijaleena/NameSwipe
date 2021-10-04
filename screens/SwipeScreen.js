@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import {View, Text, StyleSheet, Button, Alert} from 'react-native';
 import axios from 'axios';
 import SwipeableName from '../components/SwipeableName';
+import Swipes from '../components/Swipes';
 
 const SwipeScreen = props => {
 
@@ -26,8 +27,7 @@ const SwipeScreen = props => {
 
     <View style={styles.screen}>
       <View style= {styles.swipe}>
-        {names.length > 1 && (
-          <SwipeableName name={names[currentIndex]} /> )}
+        {names.length > 1 && <Swipes currentIndex={currentIndex} names={names}></Swipes> }
       </View>
       <Button title="Change Library" onPress={() => {
       props.navigation.navigate({routeName: 'Libraries'});

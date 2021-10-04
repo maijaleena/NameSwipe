@@ -35,7 +35,7 @@ const SwipeableName = ({name}) => {
     <Text style={styles.name} > {name} </Text>
     {/* <Text style={styles.info}> Language: {data[0].usages[0].usage_full}</Text> */}
     {/* <Text style={styles.info}> Historical Gender Usage: {data[0].usages[0].usage_gender}</Text> */}
-    <Text style={styles.info}> Language of Origin: Finnish </Text>
+    <Text style={styles.info}> Language Library: Finnish </Text>
   </View>
   )
 };
