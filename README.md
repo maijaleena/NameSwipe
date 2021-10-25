@@ -15,7 +15,7 @@ Name Swipe is a mobile application that helps parents find the perfect name for 
   - User can choose from several language libaries to choose names that exist in their respective cultures.
   - User can swipe through names, and view information about each name (etymology, country of origin, historical gender association)
 
-- **Name Swipe**
+ - **Name Swipe**
   - Users can swipe through names that are fetched to the front end from an external API
   - Users can "like" or "pass" a name
 
