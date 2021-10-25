@@ -6,8 +6,8 @@ Name Swipe is a mobile application that helps parents find the perfect name for 
 
 ## Tech Stack
 
-React Native
-Expo
+- React Native
+- Expo
 
 ## App Features
 
