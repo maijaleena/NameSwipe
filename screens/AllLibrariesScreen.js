@@ -18,7 +18,7 @@ const AllLibrariesScreen = (props) => {
         color={itemData.item.color}
 				onSelect={() => {
 					props.navigation.navigate({
-						routeName: 'Library',
+						routeName: 'SwipeNames',
 						params: {
 							categoryId: itemData.item.id,
 						},
